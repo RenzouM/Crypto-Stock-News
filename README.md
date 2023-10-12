@@ -1,5 +1,7 @@
 # React + Vite
 
+<span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>https://github.com/RenzouM/cryptoStock-News/blob/master/src/assets/Captura%20de%20pantalla%202023-10-12%20162233.png</span><span>)</span>
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
