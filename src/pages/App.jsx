@@ -96,7 +96,7 @@ function App() {
             <img src={argentina} className="w-[290px] h-[290px] p-0 m-0" />
           </div>
           <div className="contenedor p-4">
-            <h2 className="texto text-4xl mt-4 text-gray-50">blueArg</h2>
+            <h2 className="texto text-4xl mt-4 text-gray-50 w-[195px] mx-auto">blueArg</h2>
             <hr className="opacity-10"></hr>
             <div className="flex mt-4 w-52 m-auto">
               <a className="w-8 m-auto " href="https://www.google.com.ar"></a>

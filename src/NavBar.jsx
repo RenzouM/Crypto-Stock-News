@@ -1,23 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import menu from "./assets/menu.svg";
+import "./NavBar.css";
 
 function NavBar() {
+  const navLinks = document.querySelector(".nav-links");
+  function onToggleMenu(e) {
+    e.name = e.name === "menu" ? "close" : "menu";
+    navLinks.classList.toggle("top-[9%]");
+  }
   return (
-    <nav className="flex p-0 m-0 w-full justify-center bg-black sticky top-0 z-50">
-      <h2 className="texto2 text-2xl text-gray-500 my-auto absolute left-4 top-3">blueArg</h2>
-      <div className="flex w-auto justify-center gap-28 text-gray-300 m-0 h-14">
-        <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white" to="/">
-          Inicio
-        </Link>
-        <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white" to="http://localhost:5173/cotizaciones">
-          Cotizaciones
-        </Link>
-        <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white" to="http://localhost:5173/graficos">
-          Graficos
-        </Link>
-        <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white">Trading</Link>
-      </div>
-    </nav>
+    <header class="bg-black">
+      <nav class="flex justify-between items-center w-[92%] h-14 mx-auto">
+        <a className="absolute start-5 text-lg" href="/">
+          blueArg
+        </a>
+        <div class="nav-links duration-500 md:static absolute bg-black md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center z-50 justify-center mx-auto">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 bg-black z-50 ">
+            <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white" to="/">
+              <li>Inicio</li>
+            </Link>
+            <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white" to="http://localhost:5173/cotizaciones">
+              <li>Cotizaciones</li>
+            </Link>
+            <Link className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white" to="http://localhost:5173/graficos">
+              <li>Trading</li>
+            </Link>
+          </ul>
+        </div>
+        <div class="flex items-center gap-6"></div>
+        <img onClick={onToggleMenu} class="menu w-10 cursor-pointer absolute end-5 md:hidden" src={menu} alt="..." />
+      </nav>
+    </header>
   );
 }
 
