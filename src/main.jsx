@@ -7,13 +7,11 @@ import Graficos from "./Graficos.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/cotizaciones" element={<Cotizaciones />} />
-        <Route path="/graficos" element={<Graficos />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
+  <Router>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/cotizaciones" element={<Cotizaciones />} />
+      <Route path="/graficos" element={<Graficos />} />
+    </Routes>
+  </Router>
 );
