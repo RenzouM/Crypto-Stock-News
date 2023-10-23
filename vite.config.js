@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      input: "src/main.jsx", // Asegúrate de que esta ruta coincida con la ubicación de tu archivo "main.jsx"
+      input: "src/main.jsx",
     },
   },
 });
