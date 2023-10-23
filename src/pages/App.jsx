@@ -41,6 +41,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setNews(data);
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error al obtener noticias:", error);
@@ -127,7 +128,7 @@ function App() {
         <button className="bg-gray-600 opacity-50 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600" onClick={() => pageNews("back")}>
           &lt;
         </button>
-        {news && news.articles.slice((page - 1) * newsPerPage, page * newsPerPage).map((article, index) => <Card key={index} author={article.author} title={article.title} url={article.url} />)}
+        {news && news.articles && news.articles.slice((page - 1) * newsPerPage, page * newsPerPage).map((article, index) => <Card key={index} author={article.author} title={article.title} url={article.url} />)}
 
         <button className="bg-gray-600 opacity-50 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto" onClick={() => pageNews("next")}>
           &gt;
