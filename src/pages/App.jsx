@@ -14,39 +14,21 @@ function App() {
   const [newsPerPage, setNewsPerPage] = useState(calculateNewsPerPage());
 
   useEffect(() => {
-    // Obtener la ubicación basada en la dirección IP del usuario
-    fetch("https://ipinfo.io/json")
-      .then((response) => response.json())
-      .then((data) => {
-        const { loc } = data;
-        const [latitude, longitude] = loc.split(",");
-        setLocation({ latitude, longitude });
-
-        // Hacer una solicitud a la API de clima utilizando la ubicación
-        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`)
-          .then((response) => response.json())
-          .then((data) => {
-            setWeather(data.hourly.temperature_2m[data.hourly.temperature_2m.length - 1]);
-          })
-          .catch((error) => {
-            console.error("Error al obtener datos de clima:", error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error al obtener ubicación basada en IP:", error);
-      });
-
-    // Obtener noticias
-    fetch("https://newsapi.org/v2/top-headlines?sources=google-news-ar&apiKey=f7267ad5dea0459cb132e5b92ab747d0")
-      .then((response) => response.json())
-      .then((data) => {
-        setNews(data);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error al obtener noticias:", error);
-      });
+    fetchData(); // Llama a fetchData dentro de useEffect
   }, []);
+
+  const fetchData = async () => {
+    try {
+      // Obtener noticias
+      const newsResponse = await fetch("https://cryptostocks-news-backend-dev-dnas.1.ie-1.fl0.io/news");
+      const newsData = await newsResponse.json();
+      setNews(newsData);
+      console.log(newsData);
+    } catch (error) {
+      // Manejar cualquier error que ocurra durante la solicitud o el procesamiento de datos
+      console.error("Error al obtener noticias:", error);
+    }
+  };
 
   const pageNews = (action) => {
     if (action === "next" && news) {
