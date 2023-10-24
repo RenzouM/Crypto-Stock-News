@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./pages/App.css";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import "./App.css";
+import NavBar from "../NavBar";
+import Footer from "../Footer";
 
 function Cotizaciones() {
   const [weather, setWeather] = useState();

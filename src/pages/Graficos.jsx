@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./pages/App.css";
+import "./App.css";
 import "./Graficos.css";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import { ChartComponent } from "./ChartComponent";
+import NavBar from "../NavBar";
+import Footer from "../Footer";
+import { ChartComponent } from "../ChartComponent";
 
 function Graficos() {
   const [operaciones, setOperaciones] = useState([]);
