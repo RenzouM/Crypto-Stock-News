@@ -39,10 +39,6 @@
   color: #888;
 }
 
-.contenedor {
-  display: inline-block;
-}
-
 .texto {
   letter-spacing: 7px;
   font-family: monospace;
@@ -71,17 +67,23 @@
 }
 
 .skills {
-  font-size: clamp(3rem, 12vw, 7rem); /* Tamaño de fuente mínimo, preferido y máximo */
+  font-size: clamp(
+    3rem,
+    12vw,
+    7rem
+  ); /* Tamaño de fuente mínimo, preferido y máximo */
   transform: translateY(20%);
   border-bottom: 0;
   font-family: monospace;
   letter-spacing: 7px;
   z-index: -1000;
-  text-shadow: -1px -1px 0 rgb(141, 141, 141), 1px -1px 0 rgb(141, 141, 141), 1px 1px 0 white, -1px 1px 0 white;
+  text-shadow: -1px -1px 0 rgb(141, 141, 141), 1px -1px 0 rgb(141, 141, 141),
+    1px 1px 0 white, -1px 1px 0 white;
 }
 
 .redes {
-  filter: invert(26%) sepia(9%) saturate(17%) hue-rotate(352deg) brightness(96%) contrast(86%);
+  filter: invert(26%) sepia(9%) saturate(17%) hue-rotate(352deg) brightness(96%)
+    contrast(86%);
   transition: transform 0.3s;
 }
 
@@ -90,12 +92,9 @@
 }
 
 .redes:hover {
-  filter: invert(85%) sepia(32%) saturate(723%) hue-rotate(342deg) brightness(96%) contrast(96%);
+  filter: invert(85%) sepia(32%) saturate(723%) hue-rotate(342deg)
+    brightness(96%) contrast(96%);
   transition: filter 0.2s; /* Agrega una transición suave para el cambio de color */
-}
-
-.backk {
-  background-color: #20252c;
 }
 
 .loader {
@@ -146,6 +145,8 @@
     transform: translateY(0); /* La imagen comienza en su posición original */
   }
   50% {
-    transform: translateY(-20px); /* La imagen sube 20 píxeles en la mitad de la animación */
+    transform: translateY(
+      -20px
+    ); /* La imagen sube 20 píxeles en la mitad de la animación */
   }
 }

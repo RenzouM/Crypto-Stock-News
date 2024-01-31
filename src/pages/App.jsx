@@ -10,17 +10,14 @@ import Footer from "../Footer";
 function App() {
   const [news, setNews] = useState();
   const [page, setPage] = useState(1);
-  const [weather, setWeather] = useState();
   const [newsPerPage, setNewsPerPage] = useState(calculateNewsPerPage());
-
-  useEffect(() => {
-    fetchData(); // Llama a fetchData dentro de useEffect
-  }, []);
 
   const fetchData = async () => {
     try {
       // Obtener noticias
-      const newsResponse = await fetch("https://cryptostocks-news-backend-dev-dnas.1.ie-1.fl0.io/news");
+      const newsResponse = await fetch(
+        "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+      );
       const newsData = await newsResponse.json();
       setNews(newsData);
       console.log(newsData);
@@ -30,7 +27,7 @@ function App() {
     }
   };
 
-  const pageNews = (action) => {
+  const pageNews = action => {
     if (action === "next" && news) {
       if (page < Math.ceil(news.articles.length / newsPerPage)) {
         setPage(page + 1);
@@ -69,55 +66,88 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    fetchData(); // Llama a fetchData dentro de useEffect
+  }, []);
+
   return (
-    <>
+    <main>
       <NavBar />
-      <header className="grid sm:grid-cols-2 mt-12 m-0 p-4">
-        <section className="grid justify-center">
-          <div className="relative w-[290px] h-[290px] flex p-0 m-0">
-            <div className="loader absolute"></div>
-            <img src={argentina} className="w-[290px] h-[290px] p-0 m-0" />
-          </div>
-          <div className="contenedor p-4">
-            <h2 className="texto text-4xl mt-4 text-gray-50 w-[195px] mx-auto">blueArg</h2>
-            <hr className="opacity-10"></hr>
-            <div className="flex mt-4 w-52 m-auto">
-              <a className="w-8 m-auto " href="https://www.google.com.ar"></a>
-              <a className="w-8 m-auto" href="https://www.google.com.ar"></a>
-              <a className="w-8 m-auto" href="https://www.google.com.ar"></a>
+      <div className="md:w-[900px] p-2 mx-auto mt-8">
+        <div className="flex flex-wrap justify-evenly">
+          <div className="flex flex-wrap w-[290px]">
+            <div className="relative w-[290px] h-[290px] flex p-0 m-0">
+              <div className="loader absolute"></div>
+              <img
+                src={argentina}
+                className="w-[290px] h-[290px] p-0 m-0"
+              />
+            </div>
+
+            <div className="m-auto my-5 sm:mt-0">
+              <h2 className="texto text-4xl text-gray-50 w-[195px] ">
+                blueArg
+              </h2>
+              <hr className="opacity-10"></hr>
             </div>
           </div>
-        </section>
 
-        <article className="w-full p-4 justify-center relative">
-          <h1 className="texto2 w-2/3 text-3xl text-center m-auto text-white">
-            Cotizaciones y noticias<strong> en tiempo real</strong>
-            <span className="m-0 p-0 texto2 text-3xl text-[#68e0f0]">.-</span>
-          </h1>
-          <h4 className="w-2/3 text-start text-xl text-gray-400 m-auto mt-3">Practica tu trading y dale seguimiento sin la necesidad de crearte una cuenta.</h4>
-          <div className="w-96 flex justify-center mx-auto relative p-0 m-0 h-52">
-            <img className="w-[320px] mx-auto mt-0 absolute" src={stocks} />
-            <img className="w-[70px] animacion-subir-bajar mx-auto absolute bottom-0 right-10" src={stocksup} />
+          <div className="md:w-[325px] p-4">
+            <h1 className="texto2  text-3xl text-center text-white">
+              Cotizaciones y noticias<strong> en tiempo real</strong>
+              <span className="m-0 p-0 texto2 text-3xl text-[#68e0f0]">.-</span>
+            </h1>
+            <h4 className="text-pretty text-start text-xl text-gray-400 m-auto mt-3 mb-8 ">
+              Practica tu trading y dale seguimiento sin la necesidad de crearte
+              una cuenta.
+            </h4>
+            <div className="flex justify-center mx-auto relative h-40">
+              <img
+                className="mx-auto  scale-[220%] mt-8"
+                src={stocks}
+              />
+              <img
+                className="w-[70px] animacion-subir-bajar mx-auto absolute bottom-0 right-10"
+                src={stocksup}
+              />
+            </div>
           </div>
-        </article>
-      </header>
-      <div className="flex h-auto justify-center w-full mt-4">
-        <h1 className="skills mx-auto p-0 border-b-0 px-3 text-[#68e0f0]">
-          NOT<span className="text-white">IC</span>IAS
-        </h1>
+        </div>
+        <div className="flex h-auto justify-center w-full mt-4">
+          <h1 className="skills mx-auto p-0 border-b-0 px-3 text-[#68e0f0]">
+            NOT<span className="text-white">IC</span>IAS
+          </h1>
+        </div>
+        <section className="border-solid border-opacity-20 border   border-[#7e7e7e] bg-[#202020] rounded-lg flex overflow-hidden">
+          <button
+            className="bg-gray-600 opacity-50 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600"
+            onClick={() => pageNews("back")}>
+            &lt;
+          </button>
+          <div className="flex w-full justify-evenly">
+            {news &&
+              news.articles &&
+              news.articles
+                .slice((page - 1) * newsPerPage, page * newsPerPage)
+                .map((article, index) => (
+                  <Card
+                    key={index}
+                    author={article.author}
+                    title={article.title}
+                    url={article.url}
+                    description={article.description}
+                  />
+                ))}
+          </div>
+          <button
+            className="bg-gray-600 opacity-50 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto"
+            onClick={() => pageNews("next")}>
+            &gt;
+          </button>
+        </section>
       </div>
-      <section className="border-solid border-opacity-20 backk border h-[259px]  border-[#7e7e7e] bg-[#202020] rounded-lg mx-5 flex">
-        <button className="bg-gray-600 opacity-50 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600" onClick={() => pageNews("back")}>
-          &lt;
-        </button>
-        {news && news.articles && news.articles.slice((page - 1) * newsPerPage, page * newsPerPage).map((article, index) => <Card key={index} author={article.author} title={article.title} url={article.url} />)}
-
-        <button className="bg-gray-600 opacity-50 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto" onClick={() => pageNews("next")}>
-          &gt;
-        </button>
-      </section>
       <Footer />
-    </>
+    </main>
   );
 }
 

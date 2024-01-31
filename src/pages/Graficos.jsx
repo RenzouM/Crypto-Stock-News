@@ -85,8 +85,17 @@ function Graficos() {
     if (monto > 0) {
       const today = new Date();
       const fecha = today.toLocaleString();
-      const shortArray = { fecha, par: "BTC/USDT", tipo: "SHORT", precio: btc[60].close, monto: monto, apalancamiento: apalancamiento, total: (btc[60].close / btc[60].close) * monto * 0.99 * apalancamiento, porc: -0.01 };
-      setOperaciones((prev) => [...prev, shortArray]);
+      const shortArray = {
+        fecha,
+        par: "BTC/USDT",
+        tipo: "SHORT",
+        precio: btc[60].close,
+        monto: monto,
+        apalancamiento: apalancamiento,
+        total: (btc[60].close / btc[60].close) * monto * 0.99 * apalancamiento,
+        porc: -0.01,
+      };
+      setOperaciones(prev => [...prev, shortArray]);
       setFondo(fondo - monto);
       setMonto("");
     }
@@ -96,22 +105,35 @@ function Graficos() {
     if (monto > 0) {
       const today = new Date();
       const fecha = today.toLocaleString();
-      const shortArray = { fecha, par: "BTC/USDT", tipo: "LONG", precio: btc[60].close, monto: monto, apalancamiento: apalancamiento, total: (btc[60].close / btc[60].close) * monto * 0.99 * apalancamiento, porc: -0.01 };
-      setOperaciones((prev) => [...prev, shortArray]);
+      const shortArray = {
+        fecha,
+        par: "BTC/USDT",
+        tipo: "LONG",
+        precio: btc[60].close,
+        monto: monto,
+        apalancamiento: apalancamiento,
+        total: (btc[60].close / btc[60].close) * monto * 0.99 * apalancamiento,
+        porc: -0.01,
+      };
+      setOperaciones(prev => [...prev, shortArray]);
       setFondo(fondo - monto);
       setMonto("");
     }
   };
 
-  const handleChangeMonto = (e) => {
+  const handleChangeMonto = e => {
     const value = parseFloat(e.target.value);
     setMonto(value);
   };
 
   function updatePrices() {
-    const newState = operaciones.map((objeto) => ({
+    const newState = operaciones.map(objeto => ({
       ...objeto,
-      total: ((btc[60].close / objeto.precio) * apalancamiento * objeto.monto).toFixed(3),
+      total: (
+        (btc[60].close / objeto.precio) *
+        apalancamiento *
+        objeto.monto
+      ).toFixed(3),
       porc: (objeto.total / (objeto.monto * apalancamiento) - 1).toFixed(4),
     }));
     console.log(operaciones);
@@ -119,94 +141,162 @@ function Graficos() {
   }
 
   return (
-    <>
+    <main>
       <NavBar />
-      <header>
-        <h1 className="mt-8 text-4xl">BTC PRICE</h1>
-        <p>
-          <em>Last 60min</em>
-        </p>
-      </header>
-      <main className="w-full max-w-[1200px] h-auto mx-auto mt-8 px-2">
-        <ChartComponent data={data} />
-      </main>
-      <div className="w-full max-w-[400px] border rounded-lg p-2 mx-auto border-gray-600 border-opacity-70 my-4">
-        <div className="flex justify-between">
-          <p className="text-start text-gray-400 p-1">Aislado - Mercado</p>
-          <p className="text-start  text-sm p-2 text-gray-300">Fondos: {fondo} USDT</p>
+      <div className="md:w-[900px] mt-8 mx-auto px-2">
+        <div className="mt-4">
+          <h1 className="text-4xl font-semibold text-gray-300">BTC PRICE</h1>
+          <p>
+            <em>Last 60min</em>
+          </p>
         </div>
-        <p className="p-1 text-start">Apalancamiento:</p>
-        <div className="flex justify-between p-1">
-          <button className={apalancamiento === 2 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"} onClick={() => setApalancamiento(2)}>
-            2x
-          </button>
-          <button className={apalancamiento === 5 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"} onClick={() => setApalancamiento(5)}>
-            5x
-          </button>
-          <button className={apalancamiento === 10 ? "active w-12 flex text-center justify-center" : " w-12 flex text-center justify-center"} onClick={() => setApalancamiento(10)}>
-            10x
-          </button>
-          <button className={apalancamiento === 20 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"} onClick={() => setApalancamiento(20)}>
-            20x
-          </button>
-          <button className={apalancamiento === 50 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"} onClick={() => setApalancamiento(50)}>
-            50x
-          </button>
+        <div className="mx-auto mt-8 px-2">
+          <ChartComponent data={data} />
         </div>
-        <input className="rounded-md relative p-2 ms-1 mt-2" type="number" onChange={handleChangeMonto} value={monto} placeholder="USDT" pattern="[0-9]*" required></input>
-        <section className="mt-2 p-1 flex justify-between">
-          <button className="bg-green-500 w-36 h-12 text-xl  hover:bg-green-600 hover:text-white mx-1" onClick={() => long()}>
-            LONG
-          </button>
-          <button className="bg-red-500 w-36 h-12 text-xl  hover:bg-red-600 hover:text-white mx-1" onClick={() => short()}>
-            SHORT
-          </button>
-        </section>
-      </div>
+        <div className="w-full max-w-[400px] border rounded-lg p-2 mx-auto border-gray-600 border-opacity-70 my-4">
+          <div className="flex justify-between">
+            <p className="text-start text-gray-400 p-1">Aislado - Mercado</p>
+            <p className="text-start  text-sm p-2 text-gray-300">
+              Fondos: {fondo} USDT
+            </p>
+          </div>
+          <p className="p-1 text-start">Apalancamiento:</p>
+          <div className="flex justify-between p-1">
+            <button
+              className={
+                apalancamiento === 2
+                  ? "active w-12 flex text-center justify-center"
+                  : "w-12 flex text-center justify-center"
+              }
+              onClick={() => setApalancamiento(2)}>
+              2x
+            </button>
+            <button
+              className={
+                apalancamiento === 5
+                  ? "active w-12 flex text-center justify-center"
+                  : "w-12 flex text-center justify-center"
+              }
+              onClick={() => setApalancamiento(5)}>
+              5x
+            </button>
+            <button
+              className={
+                apalancamiento === 10
+                  ? "active w-12 flex text-center justify-center"
+                  : " w-12 flex text-center justify-center"
+              }
+              onClick={() => setApalancamiento(10)}>
+              10x
+            </button>
+            <button
+              className={
+                apalancamiento === 20
+                  ? "active w-12 flex text-center justify-center"
+                  : "w-12 flex text-center justify-center"
+              }
+              onClick={() => setApalancamiento(20)}>
+              20x
+            </button>
+            <button
+              className={
+                apalancamiento === 50
+                  ? "active w-12 flex text-center justify-center"
+                  : "w-12 flex text-center justify-center"
+              }
+              onClick={() => setApalancamiento(50)}>
+              50x
+            </button>
+          </div>
+          <input
+            className="rounded-md relative p-2 ms-1 mt-2"
+            type="number"
+            onChange={handleChangeMonto}
+            value={monto}
+            placeholder="USDT"
+            pattern="[0-9]*"
+            required></input>
+          <section className="mt-2 p-1 flex justify-between">
+            <button
+              className="bg-green-500 w-36 h-12 text-xl  hover:bg-green-600 hover:text-white mx-1"
+              onClick={() => long()}>
+              LONG
+            </button>
+            <button
+              className="bg-red-500 w-36 h-12 text-xl  hover:bg-red-600 hover:text-white mx-1"
+              onClick={() => short()}>
+              SHORT
+            </button>
+          </section>
+        </div>
 
-      <div className="border rounded-md p-2 m-auto max-w-[750px] flex justify-center overflow-x-auto overflow-y-auto max-h-[500px]">
-        <table className="min-w-[630px]">
-          <thead>
-            <tr>
-              <th colSpan="9" className="w-ful text-center h-10 border-b-2">
-                Operaciones abiertas:
-              </th>
-            </tr>
-            <tr className="h-2"></tr>
-            <tr>
-              <th>Fecha</th>
-              <th>Par</th>
-              <th>Tipo</th>
-              <th>Precio</th>
-              <th>USDT</th>
-              <th>Apal.</th>
-              <th>Total</th>
-              <th>%</th>
-            </tr>
-          </thead>
-          <tbody>
-            {operaciones.length > 0
-              ? operaciones.map((object, index) => (
-                  <tr key={index}>
-                    <td className="px-2">{object.fecha}</td>
-                    <td className="px-2">{object.par}</td>
-                    <td className={object.tipo === "SHORT" ? "text-red-500 px-2" : "text-green-500 px-2"}>{object.tipo}</td>
-                    <td className="px-2">{object.precio}</td>
-                    <td className="px-2">{object.monto}</td>
-                    <td className="px-2">{object.apalancamiento}x</td>
-                    <td className={object.total < object.monto * apalancamiento ? "text-red-500 px-2" : "text-green-500 px-2"}>{object.total}</td>
-                    <td className={object.porc < 0 ? "px-2 text-red-500" : "px-2 text-green-500"}>{object.porc}%</td>
-                    <td className="px-2">
-                      <button className="flex m-2 border-white">CLOSE</button>
-                    </td>
-                  </tr>
-                ))
-              : null}
-          </tbody>
-        </table>
+        <div className="border rounded-md p-2 m-auto flex justify-center overflow-x-auto overflow-y-auto max-h-[500px]">
+          <table className="min-w-[630px]">
+            <thead>
+              <tr>
+                <th
+                  colSpan="9"
+                  className="w-ful text-center h-10 border-b-2">
+                  Operaciones abiertas:
+                </th>
+              </tr>
+              <tr className="h-2"></tr>
+              <tr>
+                <th>Fecha</th>
+                <th>Par</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>USDT</th>
+                <th>Apal.</th>
+                <th>Total</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              {operaciones.length > 0
+                ? operaciones.map((object, index) => (
+                    <tr key={index}>
+                      <td className="px-2">{object.fecha}</td>
+                      <td className="px-2">{object.par}</td>
+                      <td
+                        className={
+                          object.tipo === "SHORT"
+                            ? "text-red-500 px-2"
+                            : "text-green-500 px-2"
+                        }>
+                        {object.tipo}
+                      </td>
+                      <td className="px-2">{object.precio}</td>
+                      <td className="px-2">{object.monto}</td>
+                      <td className="px-2">{object.apalancamiento}x</td>
+                      <td
+                        className={
+                          object.total < object.monto * apalancamiento
+                            ? "text-red-500 px-2"
+                            : "text-green-500 px-2"
+                        }>
+                        {object.total}
+                      </td>
+                      <td
+                        className={
+                          object.porc < 0
+                            ? "px-2 text-red-500"
+                            : "px-2 text-green-500"
+                        }>
+                        {object.porc}%
+                      </td>
+                      <td className="px-2">
+                        <button className="flex m-2 border-white">CLOSE</button>
+                      </td>
+                    </tr>
+                  ))
+                : null}
+            </tbody>
+          </table>
+        </div>
       </div>
       <Footer />
-    </>
+    </main>
   );
 }
 
