@@ -2,6 +2,7 @@
   "name": "criptostocks",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://renzoum.github.io/cryptoStock-News",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

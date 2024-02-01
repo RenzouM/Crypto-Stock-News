@@ -33,7 +33,6 @@ function Cotizaciones() {
 
       const data = await response.json();
       setCripto(data.Data);
-      console.log(data);
       // Aquí puedes manejar los datos según tus necesidades
     } catch (error) {
       console.error("Hubo un problema con la solicitud:", error);
@@ -48,7 +47,6 @@ function Cotizaciones() {
       const response = await fetch(url, options);
       const data = await response.json();
       setDolar(data);
-      console.log(dolar);
     } catch (error) {
       console.error(error);
     }
@@ -66,7 +64,7 @@ function Cotizaciones() {
       <NavBar />
       <div className="flex flex-wrap mt-8 md:w-[900px]  mx-auto ">
         <div className="border border-gray-700 border-opacity-50 m-auto  rounded-lg bg-zinc-800 mt-4">
-          <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden">
+          <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden min-w-[290px]">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
                 <th
@@ -81,7 +79,7 @@ function Cotizaciones() {
                 <td className="p-4 flex">
                   <img
                     className="w-[30px] me-3"
-                    src={`SRC/assets/dolar.png`}
+                    src="assets/dolar.png"
                   />{" "}
                   Dolar oficial
                 </td>
@@ -94,7 +92,7 @@ function Cotizaciones() {
                   {" "}
                   <img
                     className="w-[30px] me-3"
-                    src={`SRC/assets/dolar.png`}
+                    src="assets/dolar.png"
                   />
                   Dolar blue
                 </td>
@@ -107,7 +105,7 @@ function Cotizaciones() {
                   {" "}
                   <img
                     className="w-[30px] me-3"
-                    src={`SRC/assets/dolar.png`}
+                    src="assets/dolar.png"
                   />
                   Dolar bolsa
                 </td>
@@ -119,7 +117,7 @@ function Cotizaciones() {
                 <td className="p-4 flex">
                   <img
                     className="w-[30px] me-3"
-                    src={`SRC/assets/dolar.png`}
+                    src="assets/dolar.png"
                   />
                   Dolar CCL
                 </td>
@@ -131,7 +129,7 @@ function Cotizaciones() {
                 <td className="p-4 flex">
                   <img
                     className="w-[30px] me-3"
-                    src={`SRC/assets/dolar.png`}
+                    src="assets/dolar.png"
                   />
                   Dolar solidario
                 </td>
@@ -143,7 +141,7 @@ function Cotizaciones() {
                 <td className="p-4 flex">
                   <img
                     className="w-[30px] me-3"
-                    src={`SRC/assets/dolar.png`}
+                    src="assets/dolar.png"
                   />
                   Dolar mayorista
                 </td>
@@ -156,7 +154,7 @@ function Cotizaciones() {
         </div>
 
         <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-zinc-800 mt-4">
-          <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden h-[391px]">
+          <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden h-[391px] min-w-[290px]">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
                 <th
@@ -173,7 +171,7 @@ function Cotizaciones() {
                     <td className="p-4 flex">
                       <img
                         className="w-[30px] me-3"
-                        src={`SRC/assets/${object.CoinInfo.Name}.png`}
+                        src={`assets/${object.CoinInfo.Name}.png`}
                       />
                       {object.CoinInfo.FullName}
                     </td>

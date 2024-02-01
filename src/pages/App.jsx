@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import argentina from "../assets/argentina.svg";
 import Card from "../Card";
 import NavBar from "../NavBar";
-import stocks from "../assets/stocks.svg";
-import stocksup from "../assets/stocksup.svg";
 import Footer from "../Footer";
 
 function App() {
@@ -20,7 +17,6 @@ function App() {
       );
       const newsData = await newsResponse.json();
       setNews(newsData);
-      console.log(newsData);
     } catch (error) {
       // Manejar cualquier error que ocurra durante la solicitud o el procesamiento de datos
       console.error("Error al obtener noticias:", error);
@@ -79,7 +75,7 @@ function App() {
             <div className="relative w-[290px] h-[290px] flex p-0 m-0">
               <div className="loader absolute"></div>
               <img
-                src={argentina}
+                src="assets/argentina.svg"
                 className="w-[290px] h-[290px] p-0 m-0"
               />
             </div>
@@ -104,11 +100,11 @@ function App() {
             <div className="flex justify-center mx-auto relative h-40">
               <img
                 className="mx-auto  scale-[220%] mt-8"
-                src={stocks}
+                src="assets/stocks.svg"
               />
               <img
                 className="w-[70px] animacion-subir-bajar mx-auto absolute bottom-0 right-10"
-                src={stocksup}
+                src="assets/stocksup.svg"
               />
             </div>
           </div>
