@@ -64,9 +64,9 @@ function Cotizaciones() {
   return (
     <main>
       <NavBar />
-      <div className="flex flex-wrap mt-8 md:w-[900px]  mx-auto ">
-        <div className="border border-gray-700 border-opacity-50 m-auto  rounded-lg bg-gray-950 mt-4">
-          <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden min-w-[290px]">
+      <div className="flex flex-wrap mt-8 sm:w-[900px] w-full mx-auto ">
+        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-gray-950 mt-4">
+          <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden sm:w-[290px] w-full">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
                 <th

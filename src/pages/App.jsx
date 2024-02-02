@@ -94,7 +94,7 @@ function App() {
 
           <div className="md:w-[325px] p-4">
             <h1 className="texto2  text-3xl text-center text-white">
-              <strong>Real-time</strong> news and assets prices.
+              <strong>Real-time</strong> news and assets prices
               <span className="m-0 p-0 texto2 text-3xl text-[#68e0f0]">.-</span>
             </h1>
             <h4 className="text-pretty text-start text-xl text-gray-400 m-auto mt-3 mb-8 ">
@@ -118,9 +118,9 @@ function App() {
             N<span className="text-white">EW</span>S
           </h1>
         </div>
-        <section className="border-solid border-opacity-20 border   border-[#7e7e7e] bg-[#202020] rounded-lg flex overflow-hidden">
+        <section className="border-solid border-opacity-20 border   border-[#7e7e7e] bg-gray-900 bg-opacity-80 rounded-lg flex overflow-hidden">
           <button
-            className="bg-gray-600 opacity-50 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600"
+            className="bg-gray-700 opacity-50 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600"
             onClick={() => pageNews("back")}>
             &lt;
           </button>
@@ -140,7 +140,7 @@ function App() {
                 ))}
           </div>
           <button
-            className="bg-gray-600 opacity-50 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto"
+            className="bg-gray-700 opacity-50 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto"
             onClick={() => pageNews("next")}>
             &gt;
           </button>
