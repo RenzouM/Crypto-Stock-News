@@ -65,7 +65,7 @@ function Cotizaciones() {
     <main>
       <NavBar />
       <div className="flex flex-wrap mt-8 md:w-[900px]  mx-auto ">
-        <div className="border border-gray-700 border-opacity-50 m-auto  rounded-lg bg-zinc-800 mt-4">
+        <div className="border border-gray-700 border-opacity-50 m-auto  rounded-lg bg-gray-950 mt-4">
           <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden min-w-[290px]">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
@@ -155,7 +155,7 @@ function Cotizaciones() {
           </table>
         </div>
 
-        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-zinc-800 mt-4">
+        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-gray-950 mt-4">
           <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden h-[391px] min-w-[290px]">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>

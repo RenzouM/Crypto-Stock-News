@@ -11,9 +11,9 @@ function NavBar() {
   }
 
   return (
-    <nav className="flex justify-evenly items-center w-full h-14 mx-auto bg-black">
+    <nav className="flex justify-evenly items-center w-full h-14 mx-auto bg-gray-900 bg-opacity-70">
       <a
-        className="text-lg start-5 absolute"
+        className="text-2xl start-5 absolute text-gray-300"
         href="/">
         blueArg
       </a>
@@ -25,17 +25,17 @@ function NavBar() {
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
             to="/">
-            <li>Inicio</li>
+            <li>HOME</li>
           </Link>
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
-            to="./cotizaciones">
-            <li>Cotizaciones</li>
+            to="/cotizaciones">
+            <li>PRICES</li>
           </Link>
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
             to="/graficos">
-            <li>Trading</li>
+            <li>TRADING</li>
           </Link>
         </ul>
       </div>

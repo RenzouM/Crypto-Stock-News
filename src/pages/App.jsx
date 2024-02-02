@@ -6,6 +6,7 @@ import Footer from "../Footer";
 import Stocksup from "../assets/stocksup.svg";
 import Stocks from "../assets/stocks.svg";
 import Argentina from "../assets/argentina.svg";
+import dolarImg from "../assets/dolar.png";
 
 function App() {
   const [news, setNews] = useState();
@@ -93,12 +94,12 @@ function App() {
 
           <div className="md:w-[325px] p-4">
             <h1 className="texto2  text-3xl text-center text-white">
-              Cotizaciones y noticias<strong> en tiempo real</strong>
+              <strong>Real-time</strong> news and assets prices.
               <span className="m-0 p-0 texto2 text-3xl text-[#68e0f0]">.-</span>
             </h1>
             <h4 className="text-pretty text-start text-xl text-gray-400 m-auto mt-3 mb-8 ">
-              Practica tu trading y dale seguimiento sin la necesidad de crearte
-              una cuenta.
+              Practice your trading and track it without the need to create an
+              account.
             </h4>
             <div className="flex justify-center mx-auto relative h-40">
               <img
@@ -113,8 +114,8 @@ function App() {
           </div>
         </div>
         <div className="flex h-auto justify-center w-full my-4">
-          <h1 className="skills mx-auto p-0 border-b-0 px-3 text-[#68e0f0]">
-            NOT<span className="text-white">IC</span>IAS
+          <h1 className="skills mx-auto p-0 border-b-0 px-3 text-8xl text-[#68e0f0]">
+            N<span className="text-white">EW</span>S
           </h1>
         </div>
         <section className="border-solid border-opacity-20 border   border-[#7e7e7e] bg-[#202020] rounded-lg flex overflow-hidden">
