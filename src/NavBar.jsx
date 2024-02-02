@@ -29,7 +29,7 @@ function NavBar() {
           </Link>
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
-            to="/cotizaciones">
+            to="./cotizaciones">
             <li>Cotizaciones</li>
           </Link>
           <Link
