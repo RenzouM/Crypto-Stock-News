@@ -3,6 +3,9 @@ import "./App.css";
 import Card from "../Card";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import Stocksup from "../assets/stocksup.svg";
+import Stocks from "../assets/stocks.svg";
+import Argentina from "../assets/argentina.svg";
 
 function App() {
   const [news, setNews] = useState();
@@ -75,7 +78,7 @@ function App() {
             <div className="relative w-[290px] h-[290px] flex p-0 m-0">
               <div className="loader absolute"></div>
               <img
-                src="assets/argentina.svg"
+                src={Argentina}
                 className="w-[290px] h-[290px] p-0 m-0"
               />
             </div>
@@ -99,17 +102,17 @@ function App() {
             </h4>
             <div className="flex justify-center mx-auto relative h-40">
               <img
-                className="mx-auto  scale-[220%] mt-8"
-                src="assets/stocks.svg"
+                className="mx-auto  scale-[240%] mt-8"
+                src={Stocks}
               />
               <img
-                className="w-[70px] animacion-subir-bajar mx-auto absolute bottom-0 right-10"
-                src="assets/stocksup.svg"
+                className="w-[75px] animacion-subir-bajar mx-auto absolute bottom-0 right-10"
+                src={Stocksup}
               />
             </div>
           </div>
         </div>
-        <div className="flex h-auto justify-center w-full mt-4">
+        <div className="flex h-auto justify-center w-full my-4">
           <h1 className="skills mx-auto p-0 border-b-0 px-3 text-[#68e0f0]">
             NOT<span className="text-white">IC</span>IAS
           </h1>

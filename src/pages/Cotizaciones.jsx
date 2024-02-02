@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import dolarImg from "../assets/dolar.png";
 
 function Cotizaciones() {
   const [weather, setWeather] = useState();
@@ -26,6 +27,7 @@ function Cotizaciones() {
       const response = await fetch(url, {
         method: "GET",
       });
+      console.log(response);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -68,44 +70,44 @@ function Cotizaciones() {
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
                 <th
-                  colspan="2"
-                  className="text-3xl p-2">
+                  colSpan="2"
+                  className="text-3xl p-2 items-center">
                   DOLAR
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="p-4 flex">
+                <td className="p-4 flex items-center">
                   <img
-                    className="w-[30px] me-3"
-                    src="assets/dolar.png"
+                    className="w-[25px] me-3"
+                    src={dolarImg}
                   />{" "}
                   Dolar oficial
                 </td>
-                <td className="p-4">
+                <td className="p-4 items-center">
                   {dolar && formatCurrency(dolar[0].venta)}
                 </td>
               </tr>
               <tr>
-                <td className="p-4 flex">
+                <td className="p-4 flex items-center">
                   {" "}
                   <img
-                    className="w-[30px] me-3"
-                    src="assets/dolar.png"
+                    className="w-[25px] me-3"
+                    src={dolarImg}
                   />
                   Dolar blue
                 </td>
-                <td className="p-4">
+                <td className="p-4 items-center">
                   {dolar && formatCurrency(dolar[1].venta)}
                 </td>
               </tr>
               <tr>
-                <td className="p-4 flex">
+                <td className="p-4 flex items-center">
                   {" "}
                   <img
-                    className="w-[30px] me-3"
-                    src="assets/dolar.png"
+                    className="w-[25px] me-3"
+                    src={dolarImg}
                   />
                   Dolar bolsa
                 </td>
@@ -114,22 +116,22 @@ function Cotizaciones() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 flex">
+                <td className="p-4 flex items-center">
                   <img
-                    className="w-[30px] me-3"
-                    src="assets/dolar.png"
+                    className="w-[25px] me-3"
+                    src={dolarImg}
                   />
                   Dolar CCL
                 </td>
-                <td className="p-4">
+                <td className="p-4 items-center">
                   {dolar && formatCurrency(dolar[3].venta)}
                 </td>
               </tr>
               <tr>
-                <td className="p-4 flex">
+                <td className="p-4 flex items-center">
                   <img
-                    className="w-[30px] me-3"
-                    src="assets/dolar.png"
+                    className="w-[25px] me-3"
+                    src={dolarImg}
                   />
                   Dolar solidario
                 </td>
@@ -138,10 +140,10 @@ function Cotizaciones() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 flex">
+                <td className="p-4 flex items-center">
                   <img
-                    className="w-[30px] me-3"
-                    src="assets/dolar.png"
+                    className="w-[25px] me-3"
+                    src={dolarImg}
                   />
                   Dolar mayorista
                 </td>
@@ -158,7 +160,7 @@ function Cotizaciones() {
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
                 <th
-                  colspan="2"
+                  colSpan="2"
                   className="text-3xl p-2">
                   CRIPTO
                 </th>
@@ -170,8 +172,8 @@ function Cotizaciones() {
                   <tr key={index}>
                     <td className="p-4 flex">
                       <img
-                        className="w-[30px] me-3"
-                        src={`assets/${object.CoinInfo.Name}.png`}
+                        className="w-[25px] me-3"
+                        src={`https://www.cryptocompare.com${object.CoinInfo.ImageUrl}`}
                       />
                       {object.CoinInfo.FullName}
                     </td>

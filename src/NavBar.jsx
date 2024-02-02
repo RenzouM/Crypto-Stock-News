@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import menu from "./assets/menu.svg";
 import "./NavBar.css";
 
 function NavBar() {
@@ -42,7 +43,7 @@ function NavBar() {
       <img
         onClick={onToggleMenu}
         className="menu w-10 cursor-pointer absolute end-5 md:hidden"
-        src="assets/menu.svg"
+        src={menu}
         alt="menu"
       />
     </nav>
