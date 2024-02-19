@@ -73,7 +73,7 @@ function App() {
   return (
     <main>
       <NavBar />
-      <div className="md:w-[900px] p-2 mx-auto mt-8">
+      <div className="md:w-full p-2 mx-auto mt-8">
         <div className="flex flex-wrap justify-evenly">
           <div className="flex flex-wrap w-[290px]">
             <div className="relative w-[290px] h-[290px] flex p-0 m-0">
@@ -118,9 +118,9 @@ function App() {
             N<span className="text-white">EW</span>S
           </h1>
         </div>
-        <section className="border-solid border-opacity-20 border   border-[#7e7e7e] bg-gray-900 bg-opacity-80 rounded-lg flex overflow-hidden">
+        <section className="my-2 border-[#7e7e7e] bg-opacity-80 rounded-lg flex overflow-hidden">
           <button
-            className="bg-gray-700 opacity-50 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600"
+            className="bg-gray-700 hover:bg-gray-700 opacity-50 w-12 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600"
             onClick={() => pageNews("back")}>
             &lt;
           </button>
@@ -130,17 +130,25 @@ function App() {
               news.articles
                 .slice((page - 1) * newsPerPage, page * newsPerPage)
                 .map((article, index) => (
-                  <Card
+                  <a
                     key={index}
-                    author={article.author}
-                    title={article.title}
-                    url={article.url}
-                    description={article.description}
-                  />
+                    href={article.url}
+                    className="sm:w-[250px] w-full h-[300px] block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-opacity-50 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800">
+                    <p class="font-normal text-gray-700 text-left dark:text-gray-400 line-clamp-1">
+                      {article.author ? article.author : "News"}
+                    </p>
+                    <h5 class="mb-2 text-left font-bold tracking-tight text-gray-900 dark:text-white line-clamp-3">
+                      {article.title}
+                    </h5>
+                    <p class="font-normal text-left  text-gray-700 dark:text-gray-400 line-clamp-6">
+                      {article.description}
+                    </p>
+                  </a>
                 ))}
           </div>
+
           <button
-            className="bg-gray-700 opacity-50 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto"
+            className="bg-gray-700 opacity-50 w-12 hover:bg-gray-700 rounded-l-none text-2xl p-2 border border-opacity-25 border-gray-600 ms-auto"
             onClick={() => pageNews("next")}>
             &gt;
           </button>

@@ -11,31 +11,31 @@ function NavBar() {
   }
 
   return (
-    <nav className="flex justify-evenly items-center w-full h-14 mx-auto bg-gray-900 bg-opacity-70">
+    <nav className="flex justify-evenly items-center w-full h-14 mx-auto bg-gray-800 bg-opacity-70">
       <a
         className="text-2xl start-5 absolute text-gray-300"
         href="/">
         blueArg
       </a>
       <div
-        className={`nav-links duration-500 md:static absolute bg-black md:min-h-fit min-h-[60vh] left-0 ${
+        className={`nav-links  duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 ${
           isMenuOpen ? "top-[9%]" : "-top-full"
         } md:w-auto w-full flex items-center z-50 justify-center mx-auto`}>
-        <ul className="flex md:flex-row flex-col md:items-center gap-8 bg-black z-50">
+        <ul className="flex md:flex-row flex-col md:items-center gap-8 z-50">
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
             to="/">
-            <li>HOME</li>
+            HOME
           </Link>
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
             to="/cotizaciones">
-            <li>PRICES</li>
+            PRICES
           </Link>
           <Link
             className="texto2 text-blue-300 text-lg my-3 bg-transparent active:text-white"
             to="/graficos">
-            <li>TRADING</li>
+            TRADING
           </Link>
         </ul>
       </div>
