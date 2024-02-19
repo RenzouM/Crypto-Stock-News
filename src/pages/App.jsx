@@ -114,7 +114,7 @@ function App() {
           </div>
         </div>
         <div className="flex h-auto justify-center w-full my-4">
-          <h1 className="skills mx-auto p-0 border-b-0 px-3 text-8xl text-[#68e0f0]">
+          <h1 className="skills mx-auto p-0 border-b-0 px-3 text-8xl my-10 text-[#68e0f0]">
             N<span className="text-white">EW</span>S
           </h1>
         </div>
