@@ -103,7 +103,7 @@ function App() {
             </h4>
             <div className="flex justify-center mx-auto relative h-40">
               <img
-                className="mx-auto  scale-[240%] mt-8"
+                className="mx-auto scale-[240%] mt-8"
                 src={Stocks}
               />
               <img
