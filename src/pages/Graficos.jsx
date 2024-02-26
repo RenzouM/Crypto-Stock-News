@@ -244,12 +244,12 @@ function Graficos() {
               </tr>
               <tr className="h-2"></tr>
               <tr>
-                <th>Fecha</th>
-                <th>Par</th>
-                <th>Tipo</th>
-                <th>Precio</th>
+                <th>Date</th>
+                <th>Pair</th>
+                <th>Typo</th>
+                <th>Price</th>
                 <th>USDT</th>
-                <th>Apal.</th>
+                <th>Lever.</th>
                 <th>Total</th>
                 <th>%</th>
               </tr>
