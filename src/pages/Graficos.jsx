@@ -208,14 +208,16 @@ function Graficos() {
               50x
             </button>
           </div>
-          <input
-            className="rounded-md relative p-2 ms-1 mt-2"
-            type="number"
-            onChange={handleChangeMonto}
-            value={monto}
-            placeholder="USDT"
-            pattern="[0-9]*"
-            required></input>
+          <div className="flex w-full justify-center">
+            <input
+              className="rounded-md relative p-2 ms-1 mt-2 w-full"
+              type="number"
+              onChange={handleChangeMonto}
+              value={monto}
+              placeholder="USDT"
+              pattern="[0-9]*"
+              required></input>
+          </div>
           <section className="mt-2 p-1 flex justify-between">
             <button
               className="bg-green-500 w-36 h-12 text-xl  hover:bg-green-600 hover:text-white mx-1"
