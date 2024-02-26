@@ -239,7 +239,7 @@ function Graficos() {
                 <th
                   colSpan="9"
                   className="w-ful text-center h-10 border-b-2">
-                  History trade:
+                  Trade history:
                 </th>
               </tr>
               <tr className="h-2"></tr>
