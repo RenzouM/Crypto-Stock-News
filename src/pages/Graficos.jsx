@@ -144,8 +144,8 @@ function Graficos() {
     <main>
       <NavBar />
       <div className="md:w-[900px] mt-8 mx-auto px-2">
-        <div className="mt-4">
-          <h1 className="text-4xl font-semibold text-gray-300">BTC PRICE</h1>
+        <div className="mt-4 text-center">
+          <h1 className="text-4xl font-semibold text-gray-300 ">BTC PRICE</h1>
           <p>
             <em>Last 60min</em>
           </p>
