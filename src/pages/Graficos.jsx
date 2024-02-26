@@ -246,7 +246,7 @@ function Graficos() {
               <tr>
                 <th>Date</th>
                 <th>Pair</th>
-                <th>Typo</th>
+                <th>Type</th>
                 <th>Price</th>
                 <th>USDT</th>
                 <th>Lever.</th>
