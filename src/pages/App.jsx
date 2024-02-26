@@ -85,7 +85,7 @@ function App() {
             </div>
 
             <div className="m-auto my-5 sm:mt-0">
-              <h2 className="texto text-4xl text-gray-50 w-[195px] ">
+              <h2 className="opacity-70 text-4xl text-gray-50 w-[195px] ">
                 blueArg
               </h2>
               <hr className="opacity-10"></hr>
@@ -93,14 +93,16 @@ function App() {
           </div>
 
           <div className="md:w-[325px] p-4">
-            <h1 className="texto2  text-3xl text-center text-white">
+            <h1 className="  text-3xl text-center text-white">
               <strong>Real-time</strong> news and assets prices
               <span className="m-0 p-0 texto2 text-3xl text-[#68e0f0]">.-</span>
             </h1>
-            <h4 className="text-pretty text-start text-xl text-gray-400 m-auto mt-3 mb-8 ">
-              Practice your trading and track it without the need to create an
-              account.
-            </h4>
+            <blockquote class="text-xl italic font-semibold text-gray-900 dark:text-white mt-3 mb-8 opacity-80">
+              <p>
+                Practice your trading and track it without the need to create an
+                account.
+              </p>
+            </blockquote>
             <div className="flex justify-center mx-auto relative h-40">
               <img
                 className="mx-auto scale-[240%] mt-8"
@@ -113,11 +115,18 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="flex h-auto justify-center w-full my-4">
-          <h1 className="skills mx-auto p-0 border-b-0 px-3 text-8xl my-10 text-[#68e0f0]">
-            N<span className="text-white">EW</span>S
-          </h1>
-        </div>
+
+        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl mt-20">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r to-sky-200 from-sky-400">
+            Latest News
+          </span>{" "}
+          in real Time.
+        </h1>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 mb-8">
+          Don't miss any news and follow it daily. Always stay informed wherever
+          you go.
+        </p>
+
         <section className="my-2 border-[#7e7e7e] bg-opacity-80 rounded-lg flex overflow-hidden">
           <button
             className="bg-gray-700 hover:bg-gray-700 opacity-50 w-12 rounded-r-none text-2xl p-2 border border-opacity-25 border-gray-600"

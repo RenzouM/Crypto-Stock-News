@@ -155,7 +155,7 @@ function Graficos() {
         </div>
         <div className="w-full max-w-[400px] border rounded-lg p-2 mx-auto border-gray-600 border-opacity-70 my-4">
           <div className="flex justify-between">
-            <p className="text-start text-gray-400 p-1">Aislado - Mercado</p>
+            <p className="text-start text-gray-400 p-1">Isolated - Market</p>
             <p className="text-start  text-sm p-2 text-gray-300">
               Fondos: {fondo} USDT
             </p>
@@ -237,7 +237,7 @@ function Graficos() {
                 <th
                   colSpan="9"
                   className="w-ful text-center h-10 border-b-2">
-                  Operaciones abiertas:
+                  History trade:
                 </th>
               </tr>
               <tr className="h-2"></tr>
