@@ -160,7 +160,7 @@ function Graficos() {
               Fondos: {fondo} USDT
             </p>
           </div>
-          <p className="p-1 text-start">Apalancamiento:</p>
+          <p className="p-1 text-start">Leverage:</p>
           <div className="flex justify-between p-1">
             <button
               className={
