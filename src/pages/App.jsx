@@ -129,7 +129,7 @@ function App() {
                   <a
                     key={index}
                     href={article.url}
-                    className="sm:w-[250px] w-full h-[300px] block max-w-sm p-4 bg-gray-900 border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+                    className="sm:w-[250px] w-full h-[300px] block max-w-sm p-4 bg-gray-900 border border-gray-200 rounded-lg shadow hover:bg-gray-400/20">
                     <p className="font-normal text-gray-300 text-left line-clamp-1">{article.author ? article.author : "News"}</p>
                     <h5 className="mb-2 text-left font-bold tracking-tight text-gray-50 line-clamp-3">{article.title}</h5>
                     <p className="font-normal text-left text-gray-100 line-clamp-6">{article.description}</p>
