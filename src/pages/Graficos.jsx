@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import "./Graficos.css";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import { ChartComponent } from "../ChartComponent";
@@ -13,10 +12,6 @@ function Graficos() {
   const [fondo, setFondo] = useState(5000);
   const [monto, setMonto] = useState();
 
-  const chartContainerRef = useRef(null);
-  const chartRef = useRef(null);
-  const lineSeriesRef = useRef(null);
-
   useEffect(() => {
     fetchBitcoinData();
   }, []);
@@ -24,7 +19,6 @@ function Graficos() {
   const initializeChart = () => {
     if (btc && btc.length > 0) {
       const btcc = [];
-      const currentTime = Date.now();
       for (let i = 0; i < btc.length; i++) {
         const time = new Date(btc[i].time).getTime(); // 1 minuto = 60,000 milisegundos
         const value = btc[i].close; // Obtén el valor "close" del objeto actual
@@ -68,6 +62,7 @@ function Graficos() {
       initializeChart();
       updatePrices();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [btc]);
 
   useEffect(() => {
@@ -129,11 +124,7 @@ function Graficos() {
   function updatePrices() {
     const newState = operaciones.map(objeto => ({
       ...objeto,
-      total: (
-        (btc[60].close / objeto.precio) *
-        apalancamiento *
-        objeto.monto
-      ).toFixed(3),
+      total: ((btc[60].close / objeto.precio) * apalancamiento * objeto.monto).toFixed(3),
       porc: (objeto.total / (objeto.monto * apalancamiento) - 1).toFixed(4),
     }));
     console.log(operaciones);
@@ -141,7 +132,7 @@ function Graficos() {
   }
 
   return (
-    <main>
+    <>
       <NavBar />
       <div className="md:w-[900px] mt-8 mx-auto px-2">
         <div className="mt-4 text-center">
@@ -156,61 +147,39 @@ function Graficos() {
         <div className="w-full max-w-[400px] border rounded-lg p-2 mx-auto border-gray-600 border-opacity-70 my-4">
           <div className="flex justify-between">
             <p className="text-start text-gray-400 p-1">Isolated - Market</p>
-            <p className="text-start  text-sm p-2 text-gray-300">
-              Fondos: {fondo} USDT
-            </p>
+            <p className="text-start  text-sm p-2 text-gray-300">Fondos: {fondo} USDT</p>
           </div>
           <p className="p-1 text-start">Leverage:</p>
           <div className="flex justify-between p-1">
             <button
-              className={
-                apalancamiento === 2
-                  ? "active w-12 flex text-center justify-center"
-                  : "w-12 flex text-center justify-center"
-              }
+              className={apalancamiento === 2 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"}
               onClick={() => setApalancamiento(2)}>
               2x
             </button>
             <button
-              className={
-                apalancamiento === 5
-                  ? "active w-12 flex text-center justify-center"
-                  : "w-12 flex text-center justify-center"
-              }
+              className={apalancamiento === 5 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"}
               onClick={() => setApalancamiento(5)}>
               5x
             </button>
             <button
-              className={
-                apalancamiento === 10
-                  ? "active w-12 flex text-center justify-center"
-                  : " w-12 flex text-center justify-center"
-              }
+              className={apalancamiento === 10 ? "active w-12 flex text-center justify-center" : " w-12 flex text-center justify-center"}
               onClick={() => setApalancamiento(10)}>
               10x
             </button>
             <button
-              className={
-                apalancamiento === 20
-                  ? "active w-12 flex text-center justify-center"
-                  : "w-12 flex text-center justify-center"
-              }
+              className={apalancamiento === 20 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"}
               onClick={() => setApalancamiento(20)}>
               20x
             </button>
             <button
-              className={
-                apalancamiento === 50
-                  ? "active w-12 flex text-center justify-center"
-                  : "w-12 flex text-center justify-center"
-              }
+              className={apalancamiento === 50 ? "active w-12 flex text-center justify-center" : "w-12 flex text-center justify-center"}
               onClick={() => setApalancamiento(50)}>
               50x
             </button>
           </div>
           <div className="flex w-full justify-center">
             <input
-              className="rounded-md relative p-2 ms-1 mt-2 w-full"
+              className="rounded-md relative p-2 ms-1 mt-2 w-full bg-gray-900 border-[1px] border-gray-700"
               type="number"
               onChange={handleChangeMonto}
               value={monto}
@@ -260,33 +229,12 @@ function Graficos() {
                     <tr key={index}>
                       <td className="px-2">{object.fecha}</td>
                       <td className="px-2">{object.par}</td>
-                      <td
-                        className={
-                          object.tipo === "SHORT"
-                            ? "text-red-500 px-2"
-                            : "text-green-500 px-2"
-                        }>
-                        {object.tipo}
-                      </td>
+                      <td className={object.tipo === "SHORT" ? "text-red-500 px-2" : "text-green-500 px-2"}>{object.tipo}</td>
                       <td className="px-2">{object.precio}</td>
                       <td className="px-2">{object.monto}</td>
                       <td className="px-2">{object.apalancamiento}x</td>
-                      <td
-                        className={
-                          object.total < object.monto * apalancamiento
-                            ? "text-red-500 px-2"
-                            : "text-green-500 px-2"
-                        }>
-                        {object.total}
-                      </td>
-                      <td
-                        className={
-                          object.porc < 0
-                            ? "px-2 text-red-500"
-                            : "px-2 text-green-500"
-                        }>
-                        {object.porc}%
-                      </td>
+                      <td className={object.total < object.monto * apalancamiento ? "text-red-500 px-2" : "text-green-500 px-2"}>{object.total}</td>
+                      <td className={object.porc < 0 ? "px-2 text-red-500" : "px-2 text-green-500"}>{object.porc}%</td>
                       <td className="px-2">
                         <button className="flex m-2 border-white">CLOSE</button>
                       </td>
@@ -298,7 +246,7 @@ function Graficos() {
         </div>
       </div>
       <Footer />
-    </main>
+    </>
   );
 }
 

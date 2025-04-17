@@ -1,17 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import dolarImg from "../assets/dolar.png";
 
 function Cotizaciones() {
-  const [weather, setWeather] = useState();
   const [dolar, setDolar] = useState();
   const [cripto, setCripto] = useState();
-
-  const chartContainerRef = useRef(null);
-  const chartRef = useRef(null);
-  const lineSeriesRef = useRef(null);
 
   useEffect(() => {
     fetchDolar();
@@ -62,10 +57,10 @@ function Cotizaciones() {
   };
 
   return (
-    <main>
+    <>
       <NavBar />
       <div className="flex flex-wrap mt-8 sm:w-[900px] w-full mx-auto ">
-        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-gray-950 mt-4">
+        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-gray-900 mt-4">
           <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden sm:w-[290px] w-full">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
@@ -85,9 +80,7 @@ function Cotizaciones() {
                   />{" "}
                   Dolar oficial
                 </td>
-                <td className="p-4 items-center">
-                  {dolar && formatCurrency(dolar[0].venta)}
-                </td>
+                <td className="p-4 items-center">{dolar && formatCurrency(dolar[0].venta)}</td>
               </tr>
               <tr>
                 <td className="p-4 flex items-center">
@@ -98,9 +91,7 @@ function Cotizaciones() {
                   />
                   Dolar blue
                 </td>
-                <td className="p-4 items-center">
-                  {dolar && formatCurrency(dolar[1].venta)}
-                </td>
+                <td className="p-4 items-center">{dolar && formatCurrency(dolar[1].venta)}</td>
               </tr>
               <tr>
                 <td className="p-4 flex items-center">
@@ -111,9 +102,7 @@ function Cotizaciones() {
                   />
                   Dolar bolsa
                 </td>
-                <td className="p-4">
-                  {dolar && formatCurrency(dolar[2].venta)}
-                </td>
+                <td className="p-4">{dolar && formatCurrency(dolar[2].venta)}</td>
               </tr>
               <tr>
                 <td className="p-4 flex items-center">
@@ -123,9 +112,7 @@ function Cotizaciones() {
                   />
                   Dolar CCL
                 </td>
-                <td className="p-4 items-center">
-                  {dolar && formatCurrency(dolar[3].venta)}
-                </td>
+                <td className="p-4 items-center">{dolar && formatCurrency(dolar[3].venta)}</td>
               </tr>
               <tr>
                 <td className="p-4 flex items-center">
@@ -135,9 +122,7 @@ function Cotizaciones() {
                   />
                   Dolar solidario
                 </td>
-                <td className="p-4">
-                  {dolar && formatCurrency(dolar[4].venta)}
-                </td>
+                <td className="p-4">{dolar && formatCurrency(dolar[4].venta)}</td>
               </tr>
               <tr>
                 <td className="p-4 flex items-center">
@@ -147,15 +132,13 @@ function Cotizaciones() {
                   />
                   Dolar mayorista
                 </td>
-                <td className="p-4">
-                  {dolar && formatCurrency(dolar[5].venta)}
-                </td>
+                <td className="p-4">{dolar && formatCurrency(dolar[5].venta)}</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-gray-950 mt-4">
+        <div className="border border-gray-700 border-opacity-50 m-auto rounded-lg bg-gray-900 mt-4">
           <table className="text-start border border-collapse rounded-lg mx-auto overflow-hidden h-[391px] min-w-[290px]">
             <thead className="border border-gray-700 border-opacity-50">
               <tr>
@@ -177,14 +160,7 @@ function Cotizaciones() {
                       />
                       {object.CoinInfo.FullName}
                     </td>
-                    <td
-                      className={`p-4 ${
-                        object.DISPLAY.USD.CHANGEPCTDAY < 0
-                          ? "text-red-500"
-                          : "text-green-500"
-                      }`}>
-                      US{object.DISPLAY.USD.PRICE}
-                    </td>
+                    <td className={`p-4 ${object.DISPLAY.USD.CHANGEPCTDAY < 0 ? "text-red-500" : "text-green-500"}`}>US{object.DISPLAY.USD.PRICE}</td>
                   </tr>
                 ))}
             </tbody>
@@ -192,7 +168,7 @@ function Cotizaciones() {
         </div>
       </div>
       <Footer />
-    </main>
+    </>
   );
 }
 
